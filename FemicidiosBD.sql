@@ -150,27 +150,27 @@ VALUES
 
 /* CREACION DE LUGAR*/
 
-CREATE table femicidios.TA_Lugar( 
-
-CI_Codigo int NOT NULL AUTO_INCREMENT, 
-
-CIF_idHecho int NOT NULL, 
-
-CV_Descripcion Varchar(100) NOT NULL, 
-
-CIF_Tipo_Lugar int NOT NULL, 
-
-CV_Direccion Varchar(100) NOT NULL, 
-
-CV_Ciudad Varchar(50) NOT NULL, 
-
-CV_Pais int NOT NULL, 
-
-Primary key (CI_Codigo), 
-
-foreign key(CIF_idHecho) REFERENCES femicidios.TA_Hechos(CI_Id) 
-
-); 
+-- CREATE table femicidios.TA_Lugar(
+--
+-- CI_Codigo int NOT NULL AUTO_INCREMENT,
+--
+-- CIF_idHecho int NOT NULL,
+--
+-- CV_Descripcion Varchar(100) NOT NULL,
+--
+-- CIF_Tipo_Lugar int NOT NULL,
+--
+-- CV_Direccion Varchar(100) NOT NULL,
+--
+-- CV_Ciudad Varchar(50) NOT NULL,
+--
+-- CV_Pais int NOT NULL,
+--
+-- Primary key (CI_Codigo),
+--
+-- foreign key(CIF_idHecho) REFERENCES femicidios.TA_Hechos(CI_Id)
+--
+-- );
 
 DROP TABLE IF EXISTS `ta_lugar`; 
 /*LUGAR*/
