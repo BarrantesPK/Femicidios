@@ -52,12 +52,20 @@
           <th> Hechos </th>
           <th> Imputados </th>
 
+          <th> Acciones </th>
+
         </tr>
 
         <tbody>
         <tr th:each = "hechoImputado: ${hechoImputado}">
           <td th:text = "${hechoImputado.CIHecho}"></td>
           <td th:text = "${hechoImputado.CIImputado}"></td>
+          <td>
+
+          <a th:href = "@{/hechoimputado/{id}(id=${hechoImputado.CI_Id})}"
+             class = "btn btn-danger">Eliminar</a>
+
+          </td>
         </tr>
         </tbody>
 

@@ -65,6 +65,12 @@ public class HechoImputadoController {
         return "hechosImputados/create_hechos_imputado";
     }
 
+    @GetMapping("/hechoimputado/{id}")
+    public String deleteHecho(@PathVariable Integer id){
+        hechoImputadoService.deleteHechoImputadoById(id);
+        return "redirect:/hechoimputado";
+    }
+
     @PostMapping("/hechoimputado")
     public String saveHechoImputado(@ModelAttribute("hechoImputado") HechoImputado hechoImputado, Model model){
         try {
