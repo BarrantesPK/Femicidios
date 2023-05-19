@@ -135,12 +135,12 @@ public class LugarController {
 //    }
 
     @PostMapping("/lugar")
-    public String saveHecho(@ModelAttribute("lugar") Lugar lugar, Model model){
+    public String saveLugar(@ModelAttribute("lugar") Lugar lugar, Model model){
         try {
             lugarService.saveLugar(lugar);
             return "redirect:/lugar/" + lugar.getCIHecho();
         } catch (DataIntegrityViolationException e){
-            String mensaje = "No se puede guardar el hecho debido a un error de integridad de datos.";
+            String mensaje = "No se puede guardar el lugar debido a un error de integridad de datos.";
             model.addAttribute("error_message", mensaje);
             model.addAttribute("error", true);
             return createLugarForm(model, lugar.getCIHecho());

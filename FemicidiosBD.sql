@@ -145,7 +145,29 @@ VALUES
 1,  
 1,  
 1, 
-506); 
+506);
+
+-- Creacion de la tabla relacional entre hechos e imputados
+
+DROP table if exists hechos_imputados;
+CREATE TABLE hechos_imputados (
+                                  CI_Id INT auto_increment,
+                                  CI_Hecho INT,
+                                  CI_Imputado INT,
+                                  FOREIGN KEY (CI_Hecho) REFERENCES ta_hechos(CI_Id)
+                                      ON DELETE CASCADE
+                                      ON UPDATE CASCADE,
+                                  FOREIGN KEY (CI_Imputado) REFERENCES ta_imputados(ci_id)
+                                      ON DELETE CASCADE
+                                      ON UPDATE CASCADE,
+                                  PRIMARY KEY (CI_Id),
+                                  UNIQUE KEY unique_hechos_imputados (CI_Hecho, CI_Imputado)
+);
+
+-- INSERT INTO hechos_imputados (CI_Hecho, Ci_Imputado) VALUES (1, 1);
+-- INSERT INTO hechos_imputados (CI_Hecho, Ci_Imputado) VALUES (1, 2);
+-- INSERT INTO hechos_imputados (CI_Hecho, Ci_Imputado) VALUES (4, 2);
+-- INSERT INTO hechos_imputados (CI_Hecho, Ci_Imputado) VALUES (4, 1);
 /*********************************************************************************************************/
 
 /* CREACION DE LUGAR*/
