@@ -58,7 +58,6 @@ public class HechoImputadoServiceImpl implements HechoImputadoService {
     public List<HechoImputado> getAllHechoImputados(Integer CI_Imputado){
 
         List<HechoImputado> salida = hechoImputadoRepository.findAll();
-        List<HechoImputado> salida2 = hechoImputadoRepository.findAll();
 
         return salida.stream().filter(hechoImputado -> Objects.equals(hechoImputado.getCIImputado(), CI_Imputado)).collect(Collectors.toList());
     }

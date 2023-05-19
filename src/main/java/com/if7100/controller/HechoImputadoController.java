@@ -65,6 +65,16 @@ public class HechoImputadoController {
         return "hechosImputados/create_hechos_imputado";
     }
 
+    @GetMapping("/hechoimputados/new/{Id}")
+    public String createHechoImputadosForm(Model model, @PathVariable Integer Id){
+        HechoImputado hechoImputado = new HechoImputado();
+        hechoImputado.setCIImputado(Id);
+        model.addAttribute("hechoImputado", hechoImputado);
+        model.addAttribute("hechos", hechoService.getAllHechos());
+        model.addAttribute("imputados", imputadoService.getAllUsuarios());
+        return "hechosImputados/create_hecho_imputados";
+    }
+
     @GetMapping("/hechoimputado/{id}")
     public String deleteHecho(@PathVariable Integer id){
         hechoImputadoService.deleteHechoImputadoById(id);
@@ -94,6 +104,19 @@ public class HechoImputadoController {
             model.addAttribute("error_message", mensaje);
             model.addAttribute("error", true);
             return createHechosImputadoForm(model, hechoImputado.getCIHecho());
+        }
+    }
+
+    @PostMapping("/hechoimputados")
+    public String saveHechoImputados(@ModelAttribute("hechoImputado") HechoImputado hechoImputado, Model model){
+        try {
+            hechoImputadoService.saveHechoImputado(hechoImputado);
+            return "redirect:/hechoimputado";
+        }catch (DataIntegrityViolationException e){
+            String mensaje = "No se puede guardar el hecho debido a un error de integridad de datos.";
+            model.addAttribute("error_message", mensaje);
+            model.addAttribute("error", true);
+            return createHechoImputadosForm(model, hechoImputado.getCIImputado());
         }
     }
 

@@ -24,13 +24,13 @@ public class ImputadoController {
  public String ListImputados(Model model) {
 	 
 	 model.addAttribute("imputados",imputadoService.getAllUsuarios());
-	 return "imputados";
+	 return "imputados/imputados";
  }
  
  @GetMapping("/imputados/new")
  public String CreateUsuarioForm(Model model) {
 	 model.addAttribute("imputado",new Imputado());
-	 return "create_imputado";
+	 return "imputados/create_imputado";
  }
  
  @PostMapping("/imputados")
@@ -50,7 +50,7 @@ public class ImputadoController {
  public String editImputadosForm(Model model,@PathVariable int id) {
 	 
 	 model.addAttribute("imputado", imputadoService.getImputadoById(id));
-	 return "edit_imputado";
+	 return "imputados/edit_imputado";
  }
  
  @PostMapping("/imputados/{id}")
