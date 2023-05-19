@@ -29,8 +29,8 @@ public class NivelEducativo {
 	public NivelEducativo(String CV_Titulo, String CV_Descripcion, Integer CI_Pais) {
 		
 		super();
-		this.CV_Titulo = CV_Titulo;
-		this.CV_Descripcion = CV_Descripcion;
+		this.CVTitulo = CV_Titulo;
+		this.CVDescripcion = CV_Descripcion;
 		this.CI_Pais = CI_Pais;
 		
 	}
@@ -39,10 +39,10 @@ public class NivelEducativo {
 	private Integer CI_Id;
 	
 	@Column (name = "CV_Titulo", nullable = false)
-	private  String CV_Titulo;
+	private  String CVTitulo;
 	
 	@Column (name = "CV_Descripcion", nullable = false)
-	private String CV_Descripcion ;	
+	private String CVDescripcion;
 	
 	@Column (name = "CI_Pais", nullable = false)
 	private Integer CI_Pais ;
@@ -53,17 +53,17 @@ public class NivelEducativo {
 	public void setCI_Id(Integer cI_Id) {
 		CI_Id = cI_Id;
 	}
-	public String getCV_Titulo() {
-		return CV_Titulo;
+	public String getCVTitulo() {
+		return CVTitulo;
 	}
-	public void setCV_Titulo(String cV_Titulo) {
-		CV_Titulo= cV_Titulo;
+	public void setCVTitulo(String cV_Titulo) {
+		CVTitulo = cV_Titulo;
 	}
-	public String getCV_Descripcion() {
-		return CV_Descripcion;
+	public String getCVDescripcion() {
+		return CVDescripcion;
 	}
-	public void setCV_Descripcion(String cV_Descripcion) {
-		CV_Descripcion = cV_Descripcion;
+	public void setCVDescripcion(String cV_Descripcion) {
+		CVDescripcion = cV_Descripcion;
 	}
 	public Integer getCI_Pais() {
 		return CI_Pais;

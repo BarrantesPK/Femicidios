@@ -14,7 +14,7 @@ import com.if7100.service.NivelEducativoService;
 public class NivelEducativoController {
 private NivelEducativoService nivelEducativoService;
 	
-	public NivelEducativoController(NivelEducativoService nivelEduactivoService) {
+	public NivelEducativoController(NivelEducativoService nivelEducativoService) {
 	
 		super();
 		this.nivelEducativoService = nivelEducativoService;
@@ -23,13 +23,13 @@ private NivelEducativoService nivelEducativoService;
 @GetMapping("/nivelEducativo")
 	public String listStudents(Model model) {
 		model.addAttribute("nivelEducativo",nivelEducativoService.getAllNivelEducativo());
-		return "nivelEducativo";
+		return "nivelEducativo/nivelEducativo";
 }
-@GetMapping("/nivelEducativo/new")	
+@GetMapping("/nivelEducativo/new")
 public String createUsuarioForm(Model model){
 	NivelEducativo nivelEducativo = new NivelEducativo();
 	model.addAttribute("nivelEducativo", nivelEducativo);
-	return"create_NivelEducativo";
+	return"nivelEducativo/create_nivelEducativo";
 }
 
 @PostMapping("/nivelEducativo")
@@ -46,14 +46,14 @@ public String deleteNivelEducativo(@PathVariable Integer id) {
 @GetMapping("/nivelEducativo/edit/{id}")
 public String editNivelEducativoForm(@PathVariable Integer id, Model model) {
 	model.addAttribute("nivelEducativo", nivelEducativoService.getNivelEducativoById(id));
-	return "edit_NivelEducativo";
+	return "nivelEducativo/edit_nivelEduactivo";
 }
 @PostMapping("/nivelEducativo/{id}")
 public String updateNivelEducativo (@PathVariable Integer id, @ModelAttribute ("nivelEducativo")NivelEducativo nivelEducativo, Model model) {
 	NivelEducativo existingNivelEducativo = nivelEducativoService.getNivelEducativoById(id);
 	existingNivelEducativo.setCI_Id(id);
-	existingNivelEducativo.setCV_Titulo(nivelEducativo.getCV_Titulo());
-	existingNivelEducativo.setCV_Descripcion(nivelEducativo.getCV_Descripcion());
+	existingNivelEducativo.setCVTitulo(nivelEducativo.getCVTitulo());
+	existingNivelEducativo.setCVDescripcion(nivelEducativo.getCVDescripcion());
 	existingNivelEducativo.setCI_Pais(nivelEducativo.getCI_Pais());
 	
 	nivelEducativoService.updateNivelEducativo(existingNivelEducativo);
