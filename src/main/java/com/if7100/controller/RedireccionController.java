@@ -54,7 +54,7 @@ public class RedireccionController {
                 return "redirect:/procesojudicial";
             }
             case "tipoLugar" -> {
-                return "redirect:/tipolugares";
+                return "redirect:/tipolugar";
             }
             case "tipoRelacion" -> {
                 return "redirect:/tiporelaciones";
